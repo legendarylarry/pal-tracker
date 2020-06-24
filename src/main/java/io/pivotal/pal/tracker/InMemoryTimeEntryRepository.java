@@ -19,7 +19,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return Arrays.asList( entries.toArray(new TimeEntry[0]) );
     }
 
-    public TimeEntry delete( long id ){
+    public TimeEntry delete( Long id ){
         TimeEntry item = find(id);
         if ( item != null ) {
             entries.removeIf(timeEntry -> timeEntry.getId() == id);
@@ -28,7 +28,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return null;
     }
 
-    public TimeEntry update( long id, TimeEntry entry ){
+    public TimeEntry update( Long id, TimeEntry entry ){
 
         if ( find(id) != null ){
             entries.removeIf(timeEntry -> timeEntry.getId() == id);
@@ -39,7 +39,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         return null;
     }
 
-    public TimeEntry find(long id){
+    public TimeEntry find(Long id){
         for ( TimeEntry t: entries ){
             if ( t.getId() == id){
                 return t;

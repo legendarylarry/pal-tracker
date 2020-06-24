@@ -44,7 +44,7 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry find(long id) {
+    public TimeEntry find(Long id) {
         return jdbcTemplate.query(
                 "SELECT id, project_id, user_id, date, hours FROM time_entries WHERE id = ?",
                 new Object[]{id},
@@ -57,7 +57,7 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry update(long id, TimeEntry timeEntry) {
+    public TimeEntry update(Long id, TimeEntry timeEntry) {
         jdbcTemplate.update("UPDATE time_entries " +
                         "SET project_id = ?, user_id = ?, date = ?,  hours = ? " +
                         "WHERE id = ?",
@@ -71,7 +71,7 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
     }
 
     @Override
-    public TimeEntry delete(long id) {
+    public TimeEntry delete(Long id) {
         jdbcTemplate.update("DELETE FROM time_entries WHERE id = ?", id);
         return find(id);
     }

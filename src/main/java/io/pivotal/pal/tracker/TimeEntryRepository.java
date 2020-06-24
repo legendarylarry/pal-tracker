@@ -9,9 +9,9 @@ public interface TimeEntryRepository {
 
     public List<TimeEntry> list();
 
-    public TimeEntry delete( long id );
+    public TimeEntry delete( Long id );
 
-    public TimeEntry update( long id, TimeEntry entry );
+    public TimeEntry update( Long id, TimeEntry entry );
 
-    public TimeEntry find(long id);
+    public TimeEntry find(Long id);
 }
